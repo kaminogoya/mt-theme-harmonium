@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<$mt:Include module="<__trans phrase="HTML Head">"$>
+<mt:EntryPrevious><link rel="prev" href="<$mt:EntryPermalink$>" title="<$mt:EntryTitle encode_html="1"$>" /></mt:EntryPrevious>
+<mt:EntryNext><link rel="next" href="<$mt:EntryPermalink$>" title="<$mt:EntryTitle encode_html="1"$>" /></mt:EntryNext>
+
+        <title><mt:if tag="EntryTitle"><$mt:EntryTitle encode_html="1"$><mt:Else><__trans phrase="Untitled"></mt:If> - <$mt:BlogName encode_html="1"$></title>
+    </head>
+    <body class="individual">
+
+        <header class="page-header" role="banner">
+
+            <div class="header-inner inner">
+
+<$mt:Include module="<__trans phrase="Banner Header">"$>
+
+            </div>
+        </header>
+
+        <div class="content" role="main">
+
+            <div class="content-inner inner">
+
+                <article id="entry-<$mt:EntryID$>" class="entry hentry">
+
+                    <header class="entry-header">
+
+                        <time pubdate datetime="<$mt:EntryDate format_name="iso8601"$>" class="updated"><$mt:EntryDate format="%x %X"$></time>
+
+                        <h1 class="title entry-title">
+<mt:if tag="EntryTitle">
+    <$mt:EntryTitle$>
+<mt:Else>
+    <__trans phrase="Untitled">
+</mt:If>
+                        </h1>
+                    </header>
+
+                    <div class="entry-content">                        
+
+<$mt:EntryBody$>
+<$mt:EntryMore$>
+
+                    </div>
+
+                    <footer class="entry-footer">
+
+                        <address class="byline vcard author "><$mt:EntryAuthorLink show_hcard="1"$></address>
+
+                        <p>Posted on <time pubdate datetime="<$mt:EntryDate format_name="iso8601"$>" class="updated"><$mt:EntryDate format="%x %X"$></time><mt:EntryIfTagged> <__trans phrase="in"> <mt:EntryTags glue=", "><a rel="tag" href="javascript:void(0)" onclick="location.href='<$mt:TagSearchLink encode_js="1"$>';return false;" class="tag"><$mt:TagName$></a></mt:EntryTags></mt:EntryIfTagged></p>
+                    </footer>
+                </article>
+
+<mt:Include module="<__trans phrase="Comments">">
+
+                <nav class="content-nav entry-nav">
+<mt:EntryPrevious>
+                    <a rel="prev" href="<$mt:EntryPermalink$>" class="prev-link button" data-role="button"><__trans phrase="Previous"></a>
+</mt:EntryPrevious>
+<mt:EntryNext>
+                    <a rel="next" href="<$mt:EntryPermalink$>" class="next-link button" data-role="button"><__trans phrase="Next"></a>
+</mt:EntryNext>
+                </nav>
+            </div>
+        </div>
+
+        <footer class="page-footer" role="contentinfo">
+
+            <div class="footer-inner inner">
+
+<$mt:Include module="<__trans phrase="Banner Footer">"$>
+
+            </div>
+        </footer>
+
+        <script>
+
+<$mt:Include module="<__trans phrase="JavaScript Footer">"$>
+
+        </script>
+    </body>
+</html>
+

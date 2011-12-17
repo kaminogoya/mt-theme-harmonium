@@ -1,0 +1,61 @@
+<$mt:Var name="entries_per_page" value="10"$>
+
+<mt:SetVarBlock name="search_link">
+    <$mt:CGIPath$><$mt:SearchScript$>?IncludeBlogs=<$mt:BlogID$>
+    &template_id=<$mt:BuildTemplateID$>
+    &limit=<$mt:Var name="entries_per_page"$>
+    &archive_type=Index
+    &page=
+</mt:SetVarBlock>
+
+<$mt:Var name="search_link" strip="" trim="1" encode_html="1" setvar="search_link"$>
+
+<!DOCTYPE html>
+<html lang="<$mt:BlogLanguage$>">
+    <head>
+
+<$mt:Include module="<__trans phrase="HTML Head">"$>
+
+        <title><$mt:BlogName encode_html="1"$></title>
+    </head>
+
+    <body class="main-index">
+
+        <header class="page-header" role="banner">
+
+            <div class="header-inner inner">
+
+<$mt:Include module="<__trans phrase="Banner Header">"$>
+
+            </div>
+        </header>
+
+        <div class="content" role="main">
+    
+            <div class="content-inner inner" data-role="content" data-theme="a">
+
+<mt:Entries limit="$entries_per_page" search_results="1">
+    <$mt:Include module="<__trans phrase="Entry Summary">"$>
+</mt:Entries>
+
+<$mt:Include module="<__trans phrase="Pagination">"$>
+
+            </div>
+        </div>
+
+        <footer class="page-footer" role="contentinfo">
+
+            <div class="footer-inner inner" data-role="footer" data-theme="a">
+
+<$mt:Include module="<__trans phrase="Banner Footer">"$>
+
+            </div>
+        </footer>
+
+        <script>
+
+<$mt:Include module="<__trans phrase="JavaScript Footer">"$>
+
+        </script>
+    </body>
+</html>

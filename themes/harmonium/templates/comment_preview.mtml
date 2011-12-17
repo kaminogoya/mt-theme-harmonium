@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<mt:IfUserAgent wants="SmartPhone">
+
+    <mt:Ignore><!-- for Smart Phone --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="HTML Head - Mobile">"$>
+
+<mt:Else>
+
+    <mt:Ignore><!-- for Other --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="HTML Head">"$>
+
+</mt:IfUserAgent>
+
+        <title><__trans phrase="Previewing your Comment"> - <$mt:BlogName encode_html="1"$></title>
+        <script type="text/javascript">
+        /* <![CDATA[ */
+            var user = <$mt:UserSessionState$>;
+            var is_preview = true;
+        /* ]]> */
+        </script>
+    </head>
+    <body class="system comment-preview">
+
+        <div class="container" data-role="page" data-theme="a">
+
+            <header class="page-header">
+
+               <div class="header-inner inner" data-role="header" data-theme="a">
+
+<$mt:Include module="<__trans phrase="Banner Header">"$>
+
+               </div>
+
+               <div class="header-menu menu">
+                   <div class="header-menu-inner inner">
+
+<mt:IfUserAgent wants="SmartPhone">
+
+    <mt:Ignore><!-- for Smart Phone --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="Menu - Mobile">"$>
+
+<mt:Else>
+
+    <mt:Ignore><!-- for Other --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="Menu">"$>
+
+</mt:IfUserAgent>
+
+                   </div>
+               </div>
+
+            </header>
+
+            <div class="content">
+                <div class="content-inner inner" data-role="content" data-theme="a">
+
+                    <section class="comments feedback">
+                        <h1 class="title content-title"><__trans phrase="Previewing your Comment"></h1>
+
+                        <article id="comment-<$mt:CommentID$>" class="comment comment-preview<mt:IfCommentParent> comment-reply</mt:IfCommentParent><mt:IfCommenterIsEntryAuthor> entry-author-comment</mt:IfCommenterIsEntryAuthor>">
+                            <h2 class="title comment-title"><mt:IfCommentParent><__trans phrase="__COMMENT_TITLE_PARENT__" params="<$mt:CommentAuthorLink$>%%<mt:CommentParent><$mt:CommentAuthor$></mt:CommentParent>"><mt:Else><$mt:CommentAuthorLink$></mt:IfCommentParent></h2>
+<$mt:CommentBody$>
+                            <footer class="comment-footer">
+                                <abbr class="data datetime pubdate" title="<$mt:CommentDate format_name="iso8601"$>"><$mt:CommentDate$></abbr>
+                            </footer>
+
+                        </article>
+
+<mt:Include module="<__trans phrase="Comment Form">">
+
+                    </section>
+
+                </div>
+            </div>
+
+            <footer class="page-footer">
+                <div class="footer-inner inner" data-role="footer" data-theme="a">
+
+<$mt:Include module="<__trans phrase="Banner Footer">"$>
+
+                </div>
+            </footer>
+
+        </div>
+        <script>
+
+<mt:IfUserAgent wants="SmartPhone">
+
+    <mt:Ignore><!-- for Smart Phone --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="JavaScript Footer - Mobile">"$>
+
+<mt:Else>
+
+    <mt:Ignore><!-- for Other --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="JavaScript Footer">"$>
+
+</mt:IfUserAgent>
+
+        </script>
+    </body>
+</html>

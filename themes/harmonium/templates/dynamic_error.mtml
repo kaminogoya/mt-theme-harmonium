@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<$mt:Include module="<__trans phrase="HTML Head">"$>
+
+        <title><$mt:BlogName encode_html="1"$>: <__trans phrase="Page Not Found"></title>
+    </head>
+    <body class="system">
+
+        <header class="page-header" role="banner">
+
+           <div class="header-inner inner" data-role="header" data-theme="a">
+
+<$mt:Include module="<__trans phrase="Banner Header">"$>
+
+           </div>
+        </header>
+
+        <div class="content" role="main">
+
+            <div class="content-inner inner" data-role="content" data-theme="a">
+
+                <section>
+
+                    <h1 class="title page-title"><__trans phrase="Page Not Found"></h1>
+
+                    <pre><strong><$mt:ErrorMessage$></strong></pre>
+                </section>
+            </div>
+        </div>
+
+        <footer class="page-footer" role="contentinfo">
+            <div class="footer-inner inner">
+
+<$mt:Include module="<__trans phrase="Banner Footer">"$>
+
+            </div>
+        </footer>
+
+        <script>
+
+    <$mt:Include module="<__trans phrase="JavaScript Footer">"$>
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,206 @@
+<mt:IfPreviousResults><mt:setvar name="has_content_nav" value="1"></mt:IfPreviousResults>
+<mt:IfMoreResults><mt:setvar name="has_content_nav" value="1"></mt:IfMoreResults>
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+<$mt:Include module="<__trans phrase="HTML Head">"$>
+
+        <script type="text/javascript">
+        /* <![CDATA[ */
+            var user = <$mt:UserSessionState$>;
+        /* ]]> */
+        </script>
+
+<mt:IfStraightSearch>
+        <title><__trans phrase="Search Results"> <$mt:SearchString$> - <$mt:BlogName encode_html="1"$></title>
+</mt:IfStraightSearch>
+<mt:IfTagSearch>
+        <title><__trans phrase="Tagged"> <$mt:SearchString$> - <$mt:BlogName encode_html="1"$></title>
+</mt:IfTagSearch>
+
+<mt:Ignore>Below Javascript adds ajax search capability</mt:Ignore>
+        <script type="text/javascript">
+        /* <![CDATA[ */
+<mt:IfMoreResults>
+        function getResults(page) {
+            page = parseInt(page);
+            if (timer) window.clearTimeout(timer);
+            var xh = mtGetXmlHttp();
+            if (!xh) return false;
+            var res = results[page];
+            if (!res) return;
+            var url = res['next_url'];
+            if (!url) return;
+        
+            xh.open('GET', url + '&format=js', true);
+            xh.onreadystatechange = function() {
+                if ( xh.readyState == 4 ) {
+                    if ( xh.status && ( xh.status != 200 ) ) {
+                        // error - ignore
+                    } else {
+                        try {
+                            var page_results = eval("(" + xh.responseText + ")");
+                            if ( page_results['error'] == null )
+                                results[page + 1] = page_results['result'];
+                        } catch (e) {
+                        }
+                    }
+                }
+            };
+            xh.send(null);
+        }
+        
+        function swapContent(direction) {
+            if ( direction == undefined ) direction = 1;
+            var page_span = document.getElementById('current-page');
+            if (!page_span) return true;
+            var next_page = direction + parseInt(page_span.innerHTML);
+            var res = results[next_page];
+            if (!res) return true;
+            var content = res['content'];
+            if (!content) return true;
+            var div = document.getElementById('search-results');
+            if (!div) return true;
+            div.innerHTML = content;
+            timer = window.setTimeout("getResults(" + next_page + ")", 1*1000);
+            window.scroll(0, 0);
+            return false;
+        }
+<mt:Else>
+    <mt:IfPreviousResults>
+        function swapContent(direction) {
+            return true;
+        }
+    </mt:IfPreviousResults>
+</mt:IfMoreResults>
+        /* ]]> */
+        </script>
+    </head>
+    <body class="search-result entry-index">
+
+            <header class="page-header" role="banner">
+
+               <div class="header-inner inner">
+
+<$mt:Include module="<__trans phrase="Banner Header">"$>
+
+               </div>
+
+               <div class="header-menu menu">
+                   <div class="header-menu-inner inner">
+
+<mt:IfUserAgent wants="SmartPhone">
+
+    <mt:Ignore><!-- for Smart Phone --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="Menu - Mobile">"$>
+
+<mt:Else>
+
+    <mt:Ignore><!-- for Other --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="Menu">"$>
+
+</mt:IfUserAgent>
+
+                   </div>
+               </div>
+
+            </header>
+
+            <div class="content" role="main">
+                <div class="content-inner inner">
+
+<mt:SetVarTemplate id="search_results" name="search_results">
+    <mt:SearchResults>
+        <mt:SearchResultsHeader>
+                    <section>
+                        <h1 class="title content-title">
+            <mt:IfStraightSearch>
+                            <__trans phrase="Search Results"> &ldquo;<$mt:SearchString$>&rdquo;
+            </mt:IfStraightSearch>
+            <mt:IfTagSearch>
+                            <__trans phrase="Tagged"> &ldquo;<$mt:SearchString$>&rdquo;
+            </mt:IfTagSearch>
+                        </h1>
+                        <nav class="widget index entry-listing">
+                            <ul class="nav-list" data-role="listview" data-theme="a">
+        </mt:SearchResultsHeader>
+
+                                <mt:Include module="<__trans phrase="Entry Summary">">
+
+        <mt:SearchResultsFooter>
+                            </ul>
+                        </nav>
+
+            <mt:If name="has_content_nav">
+                        <nav class="content-nav" data-role="controlgroup" data-type="horizontal">
+            <mt:IfPreviousResults>
+                            <a rel="prev" href="<$mt:PreviousLink$>" onclick="return swapContent(-1);" class="prev-link button" data-role="button"><__trans phrase="Previous"></a>
+            </mt:IfPreviousResults>
+            <mt:IfMoreResults>
+                            <a rel="next" href="<$mt:NextLink$>" onclick="return swapContent();" class="next-link button" data-role="button"><__trans phrase="Next"></a>
+            </mt:IfMoreResults>
+                        </nav>
+            </mt:If>
+
+                    </section>
+        </mt:SearchResultsFooter>
+    </mt:SearchResults>
+</mt:SetVarTemplate>
+
+<$mt:Var name="search_results"$>
+
+<mt:NoSearchResults>
+                    <section>
+                        <h1 class="title content-title">
+    <mt:IfStraightSearch>
+                            <__trans phrase="Results matching &ldquo;[_1]&rdquo;" params="<$mt:SearchString$>">
+    </mt:IfStraightSearch>
+    <mt:IfTagSearch>
+                            <__trans phrase="Results tagged &ldquo;[_1]&rdquo;" params="<$mt:SearchString$>">
+    </mt:IfTagSearch>
+                        </h1>
+                        <p><__trans phrase="No results found for &ldquo;[_1]&rdquo;." params="<$mt:SearchString$>"></p>
+                    </section>
+</mt:NoSearchResults>
+
+<mt:NoSearch>
+                    <section>
+                        <h1 id="title content-title" class="search-results-header"><__trans phrase="Instructions"></h1>
+                        <p><__trans phrase="By default, this search engine looks for all words in any order. To search for an exact phrase, enclose the phrase in quotes:"></p>
+                        <pre><code>"<__trans phrase="movable type">"</code></pre>
+                        <p><__trans phrase="The search engine also supports AND, OR, and NOT keywords to specify boolean expressions:"></p>
+                        <pre><code><__trans phrase="personal OR publishing"></code></pre>
+                        <pre><code><__trans phrase="publishing NOT personal"></code></pre>
+                    </section>
+</mt:NoSearch>
+
+                </div>
+            </div>
+
+            <footer class="page-footer" role="content info">
+                <div class="footer-inner inner" data-role="footer" data-theme="a">
+
+<$mt:Include module="<__trans phrase="Banner Footer">"$>
+
+                </div>
+            </footer>
+
+        <script>
+
+<$mt:Include module="<__trans phrase="JavaScript Footer">"$>
+
+<mt:IfMoreResults>
+        var div = document.getElementById('search-results');
+        var results = {
+            '<$mt:CurrentPage$>': {
+                'content': div.innerHTML,
+                'next_url': '<$mt:NextLink$>'
+            }
+        };
+        var timer = window.setTimeout("getResults(" + <$mt:CurrentPage$> + ")", 1*1000);
+</mt:IfMoreResults>
+        </script>
+    </body>
+</html>

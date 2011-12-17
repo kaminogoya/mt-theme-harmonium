@@ -1,0 +1,20 @@
+# Harmonium Theme for Movable Type 5
+
+## Author
+
+Taichi Kaminogoya
+Akira Sawada
+
+## License
+
+This theme released under the GPL.
+
+## Installation
+
+1. Unpack the mt-theme-harmonium archive.
+2. Copy the contents of mt-theme-harmonium/themes/harmonium into /path/to/mt/themes
+3. Sign in to your Movable Type and apply the Harmonium theme.
+
+## Styles
+
+## Changes

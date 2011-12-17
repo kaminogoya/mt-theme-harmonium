@@ -1,0 +1,312 @@
+/*
+
+Name: Equivalent
+designer: Six Apart, Ltd
+designer_url: http://www.sixapart.com/
+
+*/
+
+body {
+    color: #2F3E46;
+    font-family: sans-serif;
+}
+
+/* - Elements */
+table { 
+    border: 1px solid #bfc5c8;
+    border-width: 1px 0 0 1px;
+    background-color: #fff;
+}
+th, 
+td { 
+    border: solid #bfc5c8;
+    border-width: 0 1px 1px 0;
+    word-wrap: break-word;
+}
+th { 
+    background-color: #e8ecef;
+}
+
+cite {
+    color: #9ea1a3;
+}
+
+
+hr {
+    border-color: #bfc5c8;
+    border-style: solid;
+    border-width: 1px 0 0;
+}
+
+pre {
+    background-color: #f3f3f3;
+}
+
+blockquote {
+    border: 1px solid #bfc5c8;
+}
+
+fieldset {
+    border: 1px solid #bfc5c8;
+}
+
+abbr, 
+acronym { 
+    border-color: #bfc5c8;
+}
+
+/* - Button */
+button, 
+.button { 
+    border: 1px solid #bfc5c8;
+    background-color: #e8ecef;
+    color: #000;
+}
+button:hover, 
+.button:hover { 
+    border-color: #7b7c7d;
+    background-color: #f3f3f3;
+    color: #2b2b2b;
+}
+button:active, 
+.button:active { 
+    background-color: #dcdddd;
+}
+
+
+/* - Component */
+.count {
+    border: 0;
+    background: #7b7c7d;
+    color: #fff;
+    font-size: 90%;
+    font-weight: bold;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+}
+
+
+/* - Menu, Widget */
+.header-menu .detail-link {
+    background: transparent url(../../images/icon-search-white.png) no-repeat center;
+    background-size: 20px;
+    -webkit-background-size: 20px;
+    -moz-background-size: 20px;
+}
+
+.menu.active .detail-link, 
+.menu.active .tabs {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.header-menu .tab {
+    color: #fff;
+}
+.tab.active, 
+.header-menu.active .widget {
+    background-color: #fff;
+    color: #000;
+}
+.widget .nav-list,
+.widget .nav-item, 
+.widget .nav-item.more-link { 
+    border-color: #bfc5c8;
+}
+.widget .nav-item {
+    color: #9ea1a3;
+}
+.widget .nav-item a {
+    color: #2f3e46;
+}
+.header-menu .widget .nav-item a {
+    background: transparent url(../../images/icon-arrow-gray.png) no-repeat center right;
+    background-size: 18px;
+    -webkit-background-size: 18px;
+    -moz-background-size: 18px;
+}
+.widget .nav-item a:hover,
+.widget .more-link:hover {
+    background-color: #f3f3f3;
+}
+
+
+/* - Entry */
+.entry-title {
+    font-size: 130%;
+    font-weight: bold;
+}
+.entry-title a:hover {
+    text-decoration: underline;
+}
+
+.entry-footer {
+    background-color: #e8ecef;
+    padding: 1px 0.62em;
+    border-radius: 0.62em;
+    -webkit-border-radius: 0.62em;
+    -moz-border-radius: 0.62em;
+}
+
+
+/* - Comments */
+#comments h1, 
+.comment, 
+#comment-greeting, 
+#comment-form-reply, 
+.comments fieldset, 
+#commenter-info li, 
+#comments-open-captcha #captcha_code {
+    border-color: #bfc5c8;
+}
+
+#comments h1 {
+    border-radius: 0.62em 0.62em 0 0;
+    -webkit-border-radius: 0.62em 0.62em 0 0;
+    -moz-border-radius: 0.62em 0.62em 0 0;
+}
+.comment:last-child {
+    border-radius: 0 0 0.62em 0.62em;
+    -webkit-border-radius: 0 0 0.62em 0.62em;
+    -moz-border-radius: 0 0 0.62em 0.62em;
+}
+#comment-greeting .signin-link {
+    border-radius: 0.62em;
+    -webkit-border-radius: 0.62em;
+    -moz-border-radius: 0.62em;
+}
+#comment-greeting .signin-link:hover {
+    background-color: #f3f3f3;
+}
+#comment-greeting .signout-link {
+    background: #939393 url(../../images/icon-close-white.png) no-repeat center;
+    background-size: 15px;
+    -webkit-background-size: 15px;
+    -moz-background-size: 15px;
+    border-radius: 0 0.62em 0.62em 0;
+    -webkit-border-radius: 0 0.62em 0.62em 0;
+    -moz-border-radius: 0 0.62em 0.62em 0;
+}
+button, 
+.button, 
+#comment-greeting, 
+.comments fieldset, 
+#comments-open-captcha #captcha_code, 
+.comments .comment-preview {
+    border-radius: 0.62em;
+    -webkit-border-radius: 0.62em;
+    -moz-border-radius: 0.62em;
+}
+
+#comments-open-captcha img {
+    background-color: #bfc5c8;
+}
+
+a, 
+.ui-body-a .ui-link {
+    color: #274a78;
+}
+a:hover {
+    text-decoration: none;
+}
+
+.ui-bar-a,
+.page-header, 
+.page-footer,
+.header-menu .detail {
+    border: 0;
+    background: #007bbb;
+    color: #fff;
+    text-shadow: none;
+    font-weight: normal;
+}
+.ui-bar-a,
+.ui-bar-a input,
+.ui-bar-a select,
+.ui-bar-a textarea,
+.ui-bar-a button {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.page-header a, 
+.page-footer a, 
+.ui-bar-a a.ui-link {
+    color: #fff;
+}
+.ui-bar-a a.ui-link, 
+.ui-bar-a a.ui-link:link, 
+.ui-bar-a a.ui-link:visited, 
+.ui-bar-a a.ui-link:hover, 
+.ui-bar-a a.ui-link:active {
+    color: #fff;
+}
+.ui-header {
+    padding: 1px 0 0;
+
+}
+
+.ui-body-a {
+    color: #2F3E46;
+    background: #fff;
+    text-shadow: none;
+}
+.ui-body-a,
+.ui-body-a input,
+.ui-body-a select,
+.ui-body-a textarea,
+.ui-body-a button {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.ui-body-a .ui-link-inherit {
+    color: #2F3E46;
+}
+
+.ui-content {
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 10%, from(#f3f3f3), to(#fff));
+}
+
+.ui-icon {
+    background-color: #7b7c7d;
+}
+
+.ui-btn-up-a {
+    border: 1px solid #ccc;
+    background: #eee;
+    font-weight: bold;
+    color: #444;
+    text-shadow: 0 1px 1px #f6f6f6;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fdfdfd), to(#eee));
+    background-image: linear-gradient(top, #fdfdfd, #eee);
+}
+.ui-btn-up-a a.ui-link-inherit {
+    color: #2F3E46;
+}
+
+.ui-btn-hover-a {
+    border: 1px solid #bbb;
+    background: #dadada;
+    font-weight: bold;
+    color: #101010;
+    text-shadow: 0 1px 1px #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#dadada));
+    background-image: linear-gradient(top, #ededed, #dadada);
+}
+.ui-btn-hover-a a.ui-link-inherit {
+    color: #2F3E46;
+}
+.ui-btn-down-a {
+    border: 1px solid #808080;
+    background: #fdfdfd;
+    font-weight: bold;
+    color: #111111;
+    text-shadow: 0 1px 1px #ffffff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fdfdfd));
+    background-image: linear-gradient(top, #eee, #fdfdfd);
+}
+.ui-btn-down-a a.ui-link-inherit {
+    color: #2F3E46;
+}
+.ui-btn-up-a,
+.ui-btn-hover-a,
+.ui-btn-down-a {
+    font-family: Helvetica, Arial, sans-serif;
+    text-decoration: none;
+}

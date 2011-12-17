@@ -1,0 +1,29 @@
+<article id="entry-<$mt:EntryID$>" class="entry hentry">
+
+    <header class="entry-header">
+
+        <time pubdate datetime="<$mt:EntryDate format_name="iso8601"$>" class="updated"><$mt:EntryDate format="%x %X"$></time>
+
+        <h1 class="title entry-title">
+<mt:if tag="EntryTitle">
+    <a href="<$mt:EntryPermalink$>"><$mt:EntryTitle$></a>
+<mt:Else>
+            <__trans phrase="Untitled">
+</mt:If>
+        </h1>
+    </header>
+
+    <div class="entry-content">                        
+
+<$mt:EntryBody$>
+<$mt:EntryMore$>
+
+    </div>
+
+    <footer class="entry-footer">
+
+        <address class="byline vcard author "><$mt:EntryAuthorLink show_hcard="1"$></address>
+
+        <p>Posted on <time pubdate datetime="<$mt:EntryDate format_name="iso8601"$>" class="updated"><$mt:EntryDate format="%x %X"$></time><mt:EntryIfTagged> <__trans phrase="in"> <mt:EntryTags glue=", "><a rel="tag" href="javascript:void(0)" onclick="location.href='<$mt:TagSearchLink encode_js="1"$>';return false;" class="tag"><$mt:TagName$></a></mt:EntryTags></mt:EntryIfTagged></p>
+    </footer>
+</article>

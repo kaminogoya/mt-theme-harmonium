@@ -1,0 +1,107 @@
+<mt:If name="comment_confirmation">
+    <$mt:Var name="page_title" value="<__trans phrase="Confirmation...">"$>
+    <$mt:Var name="message" value="<p class="message success"><__trans phrase="Your comment has been submitted!"></p>"$>
+<mt:Else name="comment_pending">
+    <$mt:Var name="page_title" value="<__trans phrase="Thank you for commenting.">"$>
+    <$mt:Var name="message" value="<p class="message success"><__trans phrase="Your comment has been received and held for approval by the blog owner."></p>"$>
+<mt:Else name="comment_error">
+    <$mt:Var name="page_title" value="<__trans phrase="Comment Submission Error">"$>
+    <mt:SetVarBlock name="message"><p class="message error"><__trans phrase="Your comment submission failed for the following reasons: [_1]" params="<$mt:ErrorMessage$>"></p></mt:SetVarBlock>
+</mt:If>
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+<mt:IfUserAgent wants="SmartPhone">
+
+    <mt:Ignore><!-- for Smart Phone --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="HTML Head - Mobile">"$>
+
+<mt:Else>
+
+    <mt:Ignore><!-- for Other --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="HTML Head">"$>
+
+</mt:IfUserAgent>
+
+        <title><$mt:BlogName encode_html="1"$>: <__trans phrase="Previewing your Comment"></title>
+        <script type="text/javascript">
+            var user = <$mt:UserSessionState$>;
+            var is_preview = true;
+        </script>
+    </head>
+    <body class="system comment-response">
+
+        <div class="container" data-role="page" data-theme="a">
+
+            <header class="page-header">
+
+               <div class="header-inner inner" data-role="header" data-theme="a">
+
+<$mt:Include module="<__trans phrase="Banner Header">"$>
+
+               </div>
+
+               <div class="header-menu menu">
+                   <div class="header-menu-inner inner">
+
+<mt:IfUserAgent wants="SmartPhone">
+
+    <mt:Ignore><!-- for Smart Phone --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="Menu - Mobile">"$>
+
+<mt:Else>
+
+    <mt:Ignore><!-- for Other --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="Menu">"$>
+
+</mt:IfUserAgent>
+
+                   </div>
+               </div>
+
+            </header>
+
+            <div class="content">
+                <div class="content-inner inner" data-role="content" data-theme="a">
+                    <section id="comment-response" class="comments feedback">
+                        <h1 class="title content-title"><$mt:Var name="page_title"$></h1>
+
+<$mt:Var name="message"$>
+
+<mt:If name="comment_error">
+                        <p><a href="javascript:history.back()"><__trans phrase="Back"></a></p>
+<mt:Else>
+                        <p><__trans phrase="Return to the <a href="[_1]">original entry</a>." params="<$mt:EntryLink$>"></p>
+</mt:If>
+                    </section>
+                </div>
+            </div>
+
+            <footer class="page-footer">
+                <div class="footer-inner inner" data-role="footer" data-theme="a">
+
+<$mt:Include module="<__trans phrase="Banner Footer">"$>
+
+                </div>
+            </footer>
+
+        </div>
+        <script>
+
+<mt:IfUserAgent wants="SmartPhone">
+
+    <mt:Ignore><!-- for Smart Phone --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="JavaScript Footer - Mobile">"$>
+
+<mt:Else>
+
+    <mt:Ignore><!-- for Other --></mt:Ignore>
+    <$mt:Include module="<__trans phrase="JavaScript Footer">"$>
+
+</mt:IfUserAgent>
+
+        </script>
+    </body>
+</html>

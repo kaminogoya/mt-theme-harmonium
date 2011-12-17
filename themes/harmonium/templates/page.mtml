@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<$mt:Include module="<__trans phrase="HTML Head">"$>
+
+        <title><mt:if tag="PageTitle"><$mt:PageTitle encode_html="1"$><mt:Else><__trans phrase="Untitled"></mt:If> - <$mt:BlogName encode_html="1"$></title>
+    </head>
+    <body class="individual webpage">
+
+        <header class="page-header">
+
+           <div class="header-inner inner">
+
+<$mt:Include module="<__trans phrase="Banner Header">"$>
+
+           </div>
+        </header>
+
+        <div class="content" role="main">
+
+            <div class="content-inner inner">
+
+                <article id="page-<$mt:PageID$>" class="page">
+
+                    <header title="entry-title">
+
+                        <h1 class="title entry-title">
+<mt:if tag="PageTitle">
+    <$mt:PageTitle$>
+<mt:Else>
+    <__trans phrase="Untitled">
+</mt:If>
+                        </h1>
+                    </header>
+                        
+                    <div class="entry-content">                        
+
+<$mt:PageBody$>
+<$mt:PageMore$>
+
+                    </div>
+
+                    <footer class="entry-footer">
+
+                        <p><__trans phrase="Last update">: <time class="update" datetime="<$mt:PageModifiedDate format_name="iso8601"$>"><$mt:PageModifiedDate format="%x %X"$></time></p>
+                    </footer>
+
+<mt:Include module="<__trans phrase="Comments">">
+
+                </article>
+            </div>
+        </div>
+
+        <footer class="page-footer">
+
+            <div class="footer-inner inner">
+
+<$mt:Include module="<__trans phrase="Banner Footer">"$>
+
+            </div>
+        </footer>
+
+        <script>
+
+<$mt:Include module="<__trans phrase="JavaScript Footer">"$>
+
+        </script>
+    </body>
+</html>
+
