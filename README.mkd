@@ -2,8 +2,8 @@
 
 ## Author
 
-Taichi Kaminogoya
-Akira Sawada
+* Taichi Kaminogoya
+* Akira Sawada
 
 ## License
 
